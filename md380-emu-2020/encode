@@ -1,0 +1,10 @@
+sox -n -r 44100 -c 1 silence.wav trim 0.0 1.0
+sox -r 44100 -c 1 silence.wav input.wav silence.wav input1.wav
+sox input1.wav -b 16 -e signed-integer -c1 -r 8000 -L input2.raw
+./qemu-arm-static md380-emu -e -i input2.raw -o output.amb
+rm silence.wav
+rm input2.raw
+rm input1.wav
+clear
+echo encoding done!
+

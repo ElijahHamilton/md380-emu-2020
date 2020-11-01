@@ -1,0 +1,9 @@
+./qemu-arm-static md380-emu -d -i output.amb -o output.raw
+sox -r 8000 -e signed-integer -L -b 16 -c 1 output.raw output1.wav
+sox -v 0.80 -r 8000 -c 1 output1.wav -r 44100 output.wav trim 0.520 -0.950
+rm output.amb
+rm output1.wav
+rm output.raw
+clear
+echo decoding done!
+
